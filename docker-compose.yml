@@ -1,43 +1,29 @@
 version: '2.1'
 services:
-  es01:
-    image: docker.elastic.co/elasticsearch/elasticsearch:7.9.0
-    container_name: es01
-    environment:
-      - node.name=es01
-      - cluster.name=es-docker-cluster
-      - cluster.initial_master_nodes=es01
-      - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m - Xmx512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    volumes:
-      - data01:/usr/share/elasticsearch/data
-    ports:
-      - 9200:9200
+  elasticsearch:
+    image: elasticsearch:7.17.18
+    container_name: elasticsearch
     networks:
-      - elastic
+      - elasticnet
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
 
-  kib01:
-    image: docker.elastic.co/kibana/kibana:7.9.0
-    container_name: kib01
+  kibana:
+    image: kibana:7.17.18
+    container_name: kibana  
     ports:
-      - 5601:5601
-    environment:
-      ELASTICSEARCH_URL: http://es01:9200
-      ELASTICSEARCH_HOST: http://es01:9200
+      - "5601:5601"    
     networks:
-      - elastic
+      - elasticnet
 
 volumes:
   data01:
     driver: local
 
 networks:
-  elastic:
-    driver: bridge
-
-
+  elasticnet:
+    external: true
       

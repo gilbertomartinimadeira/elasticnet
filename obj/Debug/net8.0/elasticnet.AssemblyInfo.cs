@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("elasticnet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bff0bd82b6a8dc571bb2fc78c8d1b7ef5a0f54b8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f50bd57d5922a0a0ed73e448cf7d3dbd24b48299")]
 [assembly: System.Reflection.AssemblyProductAttribute("elasticnet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("elasticnet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
